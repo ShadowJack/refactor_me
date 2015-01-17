@@ -1,0 +1,8 @@
+- if user_signed_in?
+  div
+    = link_to 'Sign out', destroy_user_session_path, method: :delete
+- else
+  div
+    = link_to 'Login', new_user_session_path
+    br
+    = link_to 'Login with GitHub', user_omniauth_authorize_url(:github)

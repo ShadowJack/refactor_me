@@ -2,6 +2,7 @@
   1. First week
     * Authenication
     * Models for all entities
+    * User page
     * Start of main page creation(latest threads)
   2. Second week
     * Finish main page
@@ -20,7 +21,10 @@
     * Create instance in EC2 || upload to heroku?
 
 ## First week
+  * ~~Authentication = Devise + OAuth(Github)~~
   * Create models: User, Thread, Comment, Tag. Associations: User-Tag, Thread-Tag, User-Thread(favourite threads)
-  * Authentication = Devise + OAuth(Github, Facebook, Twitter)
   * Main page: bootstrap layout + latest threads + filters
+
+##### Change scope for github authentication to just user:email(check if nickneme is returned in this case)
+Also get GitHub APP_ID and KEY from environment
 

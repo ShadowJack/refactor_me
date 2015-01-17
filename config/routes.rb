@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'main/last'
+
+  get 'main/popular'
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  root to: 'main#last'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
