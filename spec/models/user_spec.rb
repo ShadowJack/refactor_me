@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User, :type => :model do
+  before(:each) { @user = create(:user) }
+
+  it "#username returns a string" do
+    expect(@user.username).to match "test_user"
+  end
+
 end

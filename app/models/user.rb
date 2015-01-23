@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :messages, class_name: 'Message', foreign_key: :user_id
+  # User can have many favourite tags
+  has_and_belongs_to_many :tags
+  # User can have many favourite topics
+  has_and_belongs_to_many :favourite_topics, class_name: 'Topic', association_foreign_key: :topic_id, join_table: :user_favourite_topics
+  # Topics that user started
+  has_many :started_topics, class_name: 'Topic'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:github]
@@ -20,6 +26,7 @@ class User < ActiveRecord::Base
 
   # when authorizing throught github
   def self.from_omniauth(auth)
+    puts auth.pretty_print_inspect
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]

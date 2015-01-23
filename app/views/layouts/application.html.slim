@@ -7,4 +7,8 @@ html
     = csrf_meta_tags
   body
     = render partial: 'devise/menu/login_items'
+    - if flash[:notice]
+      = flash[:notice]
+    - if flash[:alert]
+      = flash[:alert]
     = yield

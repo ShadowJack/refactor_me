@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong User:
+  = @message.user_id
+p
+  strong Topic:
+  = @message.topic_id
+p
+  strong Content:
+  = @message.content
+p
+  strong Votes up:
+  = @message.votes_up
+p
+  strong Votes down:
+  = @message.votes_down
+
+= link_to 'Edit', edit_message_path(@message)
+'|
+= link_to 'Back', messages_path

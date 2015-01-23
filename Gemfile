@@ -37,6 +37,9 @@ gem 'spring',        group: :development
 # Test environment:
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
   # For OSX only

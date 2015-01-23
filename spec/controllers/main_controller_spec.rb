@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MainController, :type => :controller do
+  login_user
 
   describe "GET last" do
     it "returns http success" do
